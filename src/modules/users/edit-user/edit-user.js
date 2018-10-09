@@ -65,7 +65,7 @@
                                     vm.errorMsg = "Please enter a valid Email Id";
                                 }
                             } else if (keys.indexOf("name") !== -1) {
-                                vm.errorMsg = "Name is too short (minimum is 4 characters).";
+                               vm.errorMsg = messages;
                             } else {
                                 vm.errorMsg = "Someting went wrong. Please try again.";
                             }
@@ -96,8 +96,10 @@
         function _validateUIFields() {
             var isFormValid = true,
                 form = vm.editUserForm;
-
-            if (form.name.$invalid) {
+            if(form.name.$dirty && form.name.$error.maxlength){
+                vm.errorMsg = "Name is too long (maximum 20 characters).";
+                isFormValid = false;
+            } else if (form.name.$invalid) {
                 vm.errorMsg = "Please specify valid Name."
                 isFormValid = false;
             } else if((form.confirmPassword.$dirty && form.confirmPassword.$error.maxlength) || 

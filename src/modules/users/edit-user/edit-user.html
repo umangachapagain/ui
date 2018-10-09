@@ -26,7 +26,7 @@
             <div class="form-group">
                 <label class="col-sm-2 col-md-1 control-label" for="name">Name</label>
                 <div class="col-sm-8 col-md-6">
-                    <input type="text" class="form-control" data-id="name" name="name" ng-model="editUserCntrl.user.name" required/>
+                    <input type="text" class="form-control" data-id="name" name="name" ng-model="editUserCntrl.user.name" minlength="4" ng-maxlength="20" required/>
                 </div>
             </div>
             <div class="form-inline form-group">
